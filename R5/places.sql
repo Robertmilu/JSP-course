@@ -1,0 +1,11 @@
+USE stu0756;
+CREATE TABLE places(place VARCHAR(20), nation VARCHAR(20), latitude DOUBLE(10,7), longitude DOUBLE(10,7));
+INSERT INTO places(place, nation, latitude, longitude) VALUES('東京', '日本', 35.681176, 139.766508);
+INSERT INTO places(place, nation, latitude, longitude) VALUES('北京', '中国', 39.921697, 116.382317);
+INSERT INTO places(place, nation, latitude, longitude) VALUES('オレゴン', 'アメリカ', 43.807201, -120.640193);
+INSERT INTO places(place, nation, latitude, longitude) VALUES('京都', '日本', 35.006756, 135.760500);
+INSERT INTO places(place, nation, latitude, longitude) VALUES('西宮', '日本', 34.736856, 135.334330);
+INSERT INTO places(place, nation, latitude, longitude) VALUES('和歌山', '日本', 33.729891, 135.387180);
+INSERT INTO places(place, nation, latitude, longitude) VALUES('函館', '日本', 41.789849, 140.742087);
+INSERT INTO places(place, nation, latitude, longitude) VALUES('郡山市', '日本', 37.408558, 140.376318);
+INSERT INTO places(place, nation, latitude, longitude) VALUES('篠山市', '日本', 35.072821, 135.215075);

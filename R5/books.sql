@@ -1,0 +1,12 @@
+USE stu0756;
+CREATE TABLE books(id INT AUTO_INCREMENT PRIMARY KEY, writer VARCHAR(20), bookname VARCHAR(100), publishername VARCHAR(100), isbn VARCHAR(20), price INT, publishyear INT, imagename VARCHAR(100));
+INSERT INTO books(writer, bookname, publishername, isbn, price, publishyear, imagename) VALUES('柴田望洋','新・解きながら学ぶC言語','SBクリエイティブ', '9784815615178', 2420, 2022, '1.pdf');
+INSERT INTO books(writer, bookname, publishername, isbn, price, publishyear, imagename) VALUES('亀田健司','1週間でC++の基礎が学べる本','インプレス', '9784295011033', 2860, 2021, '2.pdf');
+INSERT INTO books(writer, bookname, publishername, isbn, price, publishyear, imagename) VALUES('米田 優峻','問題解決のための「アルゴリズム×数学」が基礎からしっかり身につく本','技術評論社', '9784297125219', 2948, 2021, '3.pdf');
+INSERT INTO books(writer, bookname, publishername, isbn, price, publishyear, imagename) VALUES('柴田望洋','新・明解C++入門編','SBクリエイティブ', '9784797394634', 3025, 2017, '4.pdf');
+INSERT INTO books(writer, bookname, publishername, isbn, price, publishyear, imagename) VALUES('柴田望洋','新版 明解C言語 入門編','ソフトバンククリエイティブ大阪営業所', '9784797327922', 317, 2004, '5.pdf');
+INSERT INTO books(writer, bookname, publishername, isbn, price, publishyear, imagename) VALUES('三谷純','Java 第3版 入門編 ゼロからはじめるプログラミング','翔泳社', '9784798167060', 2068, 2021, '6.pdf');
+INSERT INTO books(writer, bookname, publishername, isbn, price, publishyear, imagename) VALUES('三谷純','Java 第3版 実践編 アプリケーション作りの基本','翔泳社', '9784798167077', 2068, 2021, '7.pdf');
+INSERT INTO books(writer, bookname, publishername, isbn, price, publishyear, imagename) VALUES('樹下雅章','Spring Framework超入門 ~やさしくわかるWebアプリ開発','技術評論社', '9784297124298', 3058, 2021, '8.pdf');
+INSERT INTO books(writer, bookname, publishername, isbn, price, publishyear, imagename) VALUES('クジラ飛行机','シゴトがはかどる Python自動処理の教科書','マイナビ出版', '9784839973858', 2739, 2020, '9.pdf');
+INSERT INTO books(writer, bookname, publishername, isbn, price, publishyear, imagename) VALUES('上野史瑛','図解 Amazon Web Servicesの仕組みとサービスがたった1日でよくわかる','SBクリエイティブ', '9784815612818', 2200, 2022, '10.pdf');

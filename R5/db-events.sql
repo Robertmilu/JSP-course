@@ -1,0 +1,10 @@
+USE stu0756;
+SELECT * FROM events;
+SELECT * FROM events WHERE name LIKE '%オリンピック%';
+SELECT * FROM events WHERE date > now();
+SELECT * FROM events WHERE YEAR(date) != 2022;
+SELECT * FROM events WHERE YEAR(date) != 2022 AND name LIKE '%オリンピック%';
+SELECT events.name, events.date, events.place, places.nation FROM events JOIN places on events.place = places.place;
+SELECT * FROM events JOIN places on events.place = places.place WHERE places.nation = '日本' ORDER BY (events.date) ASC;
+SELECT COUNT(*) FROM events JOIN places on events.place = places.place WHERE places.nation = '日本';
+SELECT * FROM events JOIN places on events.place = places.place ORDER BY (6371 * ACOS( COS(RADIANS(34.915408)) * COS(RADIANS(places.latitude)) * COS(RADIANS(places.longitude) - RADIANS(135.163968)) + SIN(RADIANS(34.915408)) * SIN(RADIANS(places.latitude)))) ASC;

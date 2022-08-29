@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>&#x7b2c;7&comma;8&#x56de;&#xff1a;JSP&#xff1a;&#x30d5;&#x30a1;&#x30a4;&#x30eb;&#x3068;&#x6b63;&#x898f;&#x8868;&#x73fe;</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension vscode.markdown-math */
+@font-face{font-family:KaTeX_AMS;font-style:normal;font-weight:400;src:url(fonts/KaTeX_AMS-Regular.woff2) format("woff2"),url(fonts/KaTeX_AMS-Regular.woff) format("woff"),url(fonts/KaTeX_AMS-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Caligraphic;font-style:normal;font-weight:700;src:url(fonts/KaTeX_Caligraphic-Bold.woff2) format("woff2"),url(fonts/KaTeX_Caligraphic-Bold.woff) format("woff"),url(fonts/KaTeX_Caligraphic-Bold.ttf) format("truetype")}@font-face{font-family:KaTeX_Caligraphic;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Caligraphic-Regular.woff2) format("woff2"),url(fonts/KaTeX_Caligraphic-Regular.woff) format("woff"),url(fonts/KaTeX_Caligraphic-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Fraktur;font-style:normal;font-weight:700;src:url(fonts/KaTeX_Fraktur-Bold.woff2) format("woff2"),url(fonts/KaTeX_Fraktur-Bold.woff) format("woff"),url(fonts/KaTeX_Fraktur-Bold.ttf) format("truetype")}@font-face{font-family:KaTeX_Fraktur;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Fraktur-Regular.woff2) format("woff2"),url(fonts/KaTeX_Fraktur-Regular.woff) format("woff"),url(fonts/KaTeX_Fraktur-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Main;font-style:normal;font-weight:700;src:url(fonts/KaTeX_Main-Bold.woff2) format("woff2"),url(fonts/KaTeX_Main-Bold.woff) format("woff"),url(fonts/KaTeX_Main-Bold.ttf) format("truetype")}@font-face{font-family:KaTeX_Main;font-style:italic;font-weight:700;src:url(fonts/KaTeX_Main-BoldItalic.woff2) format("woff2"),url(fonts/KaTeX_Main-BoldItalic.woff) format("woff"),url(fonts/KaTeX_Main-BoldItalic.ttf) format("truetype")}@font-face{font-family:KaTeX_Main;font-style:italic;font-weight:400;src:url(fonts/KaTeX_Main-Italic.woff2) format("woff2"),url(fonts/KaTeX_Main-Italic.woff) format("woff"),url(fonts/KaTeX_Main-Italic.ttf) format("truetype")}@font-face{font-family:KaTeX_Main;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Main-Regular.woff2) format("woff2"),url(fonts/KaTeX_Main-Regular.woff) format("woff"),url(fonts/KaTeX_Main-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Math;font-style:italic;font-weight:700;src:url(fonts/KaTeX_Math-BoldItalic.woff2) format("woff2"),url(fonts/KaTeX_Math-BoldItalic.woff) format("woff"),url(fonts/KaTeX_Math-BoldItalic.ttf) format("truetype")}@font-face{font-family:KaTeX_Math;font-style:italic;font-weight:400;src:url(fonts/KaTeX_Math-Italic.woff2) format("woff2"),url(fonts/KaTeX_Math-Italic.woff) format("woff"),url(fonts/KaTeX_Math-Italic.ttf) format("truetype")}@font-face{font-family:"KaTeX_SansSerif";font-style:normal;font-weight:700;src:url(fonts/KaTeX_SansSerif-Bold.woff2) format("woff2"),url(fonts/KaTeX_SansSerif-Bold.woff) format("woff"),url(fonts/KaTeX_SansSerif-Bold.ttf) format("truetype")}@font-face{font-family:"KaTeX_SansSerif";font-style:italic;font-weight:400;src:url(fonts/KaTeX_SansSerif-Italic.woff2) format("woff2"),url(fonts/KaTeX_SansSerif-Italic.woff) format("woff"),url(fonts/KaTeX_SansSerif-Italic.ttf) format("truetype")}@font-face{font-family:"KaTeX_SansSerif";font-style:normal;font-weight:400;src:url(fonts/KaTeX_SansSerif-Regular.woff2) format("woff2"),url(fonts/KaTeX_SansSerif-Regular.woff) format("woff"),url(fonts/KaTeX_SansSerif-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Script;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Script-Regular.woff2) format("woff2"),url(fonts/KaTeX_Script-Regular.woff) format("woff"),url(fonts/KaTeX_Script-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Size1;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Size1-Regular.woff2) format("woff2"),url(fonts/KaTeX_Size1-Regular.woff) format("woff"),url(fonts/KaTeX_Size1-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Size2;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Size2-Regular.woff2) format("woff2"),url(fonts/KaTeX_Size2-Regular.woff) format("woff"),url(fonts/KaTeX_Size2-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Size3;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Size3-Regular.woff2) format("woff2"),url(fonts/KaTeX_Size3-Regular.woff) format("woff"),url(fonts/KaTeX_Size3-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Size4;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Size4-Regular.woff2) format("woff2"),url(fonts/KaTeX_Size4-Regular.woff) format("woff"),url(fonts/KaTeX_Size4-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Typewriter;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Typewriter-Regular.woff2) format("woff2"),url(fonts/KaTeX_Typewriter-Regular.woff) format("woff"),url(fonts/KaTeX_Typewriter-Regular.ttf) format("truetype")}.katex{text-rendering:auto;font:normal 1.21em KaTeX_Main,Times New Roman,serif;line-height:1.2;text-indent:0}.katex *{-ms-high-contrast-adjust:none!important;border-color:currentColor}.katex .katex-version:after{content:"0.13.24"}.katex .katex-mathml{clip:rect(1px,1px,1px,1px);border:0;height:1px;overflow:hidden;padding:0;position:absolute;width:1px}.katex .katex-html>.newline{display:block}.katex .base{position:relative;white-space:nowrap;width:-webkit-min-content;width:-moz-min-content;width:min-content}.katex .base,.katex .strut{display:inline-block}.katex .textbf{font-weight:700}.katex .textit{font-style:italic}.katex .textrm{font-family:KaTeX_Main}.katex .textsf{font-family:KaTeX_SansSerif}.katex .texttt{font-family:KaTeX_Typewriter}.katex .mathnormal{font-family:KaTeX_Math;font-style:italic}.katex .mathit{font-family:KaTeX_Main;font-style:italic}.katex .mathrm{font-style:normal}.katex .mathbf{font-family:KaTeX_Main;font-weight:700}.katex .boldsymbol{font-family:KaTeX_Math;font-style:italic;font-weight:700}.katex .amsrm,.katex .mathbb,.katex .textbb{font-family:KaTeX_AMS}.katex .mathcal{font-family:KaTeX_Caligraphic}.katex .mathfrak,.katex .textfrak{font-family:KaTeX_Fraktur}.katex .mathtt{font-family:KaTeX_Typewriter}.katex .mathscr,.katex .textscr{font-family:KaTeX_Script}.katex .mathsf,.katex .textsf{font-family:KaTeX_SansSerif}.katex .mathboldsf,.katex .textboldsf{font-family:KaTeX_SansSerif;font-weight:700}.katex .mathitsf,.katex .textitsf{font-family:KaTeX_SansSerif;font-style:italic}.katex .mainrm{font-family:KaTeX_Main;font-style:normal}.katex .vlist-t{border-collapse:collapse;display:inline-table;table-layout:fixed}.katex .vlist-r{display:table-row}.katex .vlist{display:table-cell;position:relative;vertical-align:bottom}.katex .vlist>span{display:block;height:0;position:relative}.katex .vlist>span>span{display:inline-block}.katex .vlist>span>.pstrut{overflow:hidden;width:0}.katex .vlist-t2{margin-right:-2px}.katex .vlist-s{display:table-cell;font-size:1px;min-width:2px;vertical-align:bottom;width:2px}.katex .vbox{align-items:baseline;display:inline-flex;flex-direction:column}.katex .hbox{width:100%}.katex .hbox,.katex .thinbox{display:inline-flex;flex-direction:row}.katex .thinbox{max-width:0;width:0}.katex .msupsub{text-align:left}.katex .mfrac>span>span{text-align:center}.katex .mfrac .frac-line{border-bottom-style:solid;display:inline-block;width:100%}.katex .hdashline,.katex .hline,.katex .mfrac .frac-line,.katex .overline .overline-line,.katex .rule,.katex .underline .underline-line{min-height:1px}.katex .mspace{display:inline-block}.katex .clap,.katex .llap,.katex .rlap{position:relative;width:0}.katex .clap>.inner,.katex .llap>.inner,.katex .rlap>.inner{position:absolute}.katex .clap>.fix,.katex .llap>.fix,.katex .rlap>.fix{display:inline-block}.katex .llap>.inner{right:0}.katex .clap>.inner,.katex .rlap>.inner{left:0}.katex .clap>.inner>span{margin-left:-50%;margin-right:50%}.katex .rule{border:0 solid;display:inline-block;position:relative}.katex .hline,.katex .overline .overline-line,.katex .underline .underline-line{border-bottom-style:solid;display:inline-block;width:100%}.katex .hdashline{border-bottom-style:dashed;display:inline-block;width:100%}.katex .sqrt>.root{margin-left:.27777778em;margin-right:-.55555556em}.katex .fontsize-ensurer.reset-size1.size1,.katex .sizing.reset-size1.size1{font-size:1em}.katex .fontsize-ensurer.reset-size1.size2,.katex .sizing.reset-size1.size2{font-size:1.2em}.katex .fontsize-ensurer.reset-size1.size3,.katex .sizing.reset-size1.size3{font-size:1.4em}.katex .fontsize-ensurer.reset-size1.size4,.katex .sizing.reset-size1.size4{font-size:1.6em}.katex .fontsize-ensurer.reset-size1.size5,.katex .sizing.reset-size1.size5{font-size:1.8em}.katex .fontsize-ensurer.reset-size1.size6,.katex .sizing.reset-size1.size6{font-size:2em}.katex .fontsize-ensurer.reset-size1.size7,.katex .sizing.reset-size1.size7{font-size:2.4em}.katex .fontsize-ensurer.reset-size1.size8,.katex .sizing.reset-size1.size8{font-size:2.88em}.katex .fontsize-ensurer.reset-size1.size9,.katex .sizing.reset-size1.size9{font-size:3.456em}.katex .fontsize-ensurer.reset-size1.size10,.katex .sizing.reset-size1.size10{font-size:4.148em}.katex .fontsize-ensurer.reset-size1.size11,.katex .sizing.reset-size1.size11{font-size:4.976em}.katex .fontsize-ensurer.reset-size2.size1,.katex .sizing.reset-size2.size1{font-size:.83333333em}.katex .fontsize-ensurer.reset-size2.size2,.katex .sizing.reset-size2.size2{font-size:1em}.katex .fontsize-ensurer.reset-size2.size3,.katex .sizing.reset-size2.size3{font-size:1.16666667em}.katex .fontsize-ensurer.reset-size2.size4,.katex .sizing.reset-size2.size4{font-size:1.33333333em}.katex .fontsize-ensurer.reset-size2.size5,.katex .sizing.reset-size2.size5{font-size:1.5em}.katex .fontsize-ensurer.reset-size2.size6,.katex .sizing.reset-size2.size6{font-size:1.66666667em}.katex .fontsize-ensurer.reset-size2.size7,.katex .sizing.reset-size2.size7{font-size:2em}.katex .fontsize-ensurer.reset-size2.size8,.katex .sizing.reset-size2.size8{font-size:2.4em}.katex .fontsize-ensurer.reset-size2.size9,.katex .sizing.reset-size2.size9{font-size:2.88em}.katex .fontsize-ensurer.reset-size2.size10,.katex .sizing.reset-size2.size10{font-size:3.45666667em}.katex .fontsize-ensurer.reset-size2.size11,.katex .sizing.reset-size2.size11{font-size:4.14666667em}.katex .fontsize-ensurer.reset-size3.size1,.katex .sizing.reset-size3.size1{font-size:.71428571em}.katex .fontsize-ensurer.reset-size3.size2,.katex .sizing.reset-size3.size2{font-size:.85714286em}.katex .fontsize-ensurer.reset-size3.size3,.katex .sizing.reset-size3.size3{font-size:1em}.katex .fontsize-ensurer.reset-size3.size4,.katex .sizing.reset-size3.size4{font-size:1.14285714em}.katex .fontsize-ensurer.reset-size3.size5,.katex .sizing.reset-size3.size5{font-size:1.28571429em}.katex .fontsize-ensurer.reset-size3.size6,.katex .sizing.reset-size3.size6{font-size:1.42857143em}.katex .fontsize-ensurer.reset-size3.size7,.katex .sizing.reset-size3.size7{font-size:1.71428571em}.katex .fontsize-ensurer.reset-size3.size8,.katex .sizing.reset-size3.size8{font-size:2.05714286em}.katex .fontsize-ensurer.reset-size3.size9,.katex .sizing.reset-size3.size9{font-size:2.46857143em}.katex .fontsize-ensurer.reset-size3.size10,.katex .sizing.reset-size3.size10{font-size:2.96285714em}.katex .fontsize-ensurer.reset-size3.size11,.katex .sizing.reset-size3.size11{font-size:3.55428571em}.katex .fontsize-ensurer.reset-size4.size1,.katex .sizing.reset-size4.size1{font-size:.625em}.katex .fontsize-ensurer.reset-size4.size2,.katex .sizing.reset-size4.size2{font-size:.75em}.katex .fontsize-ensurer.reset-size4.size3,.katex .sizing.reset-size4.size3{font-size:.875em}.katex .fontsize-ensurer.reset-size4.size4,.katex .sizing.reset-size4.size4{font-size:1em}.katex .fontsize-ensurer.reset-size4.size5,.katex .sizing.reset-size4.size5{font-size:1.125em}.katex .fontsize-ensurer.reset-size4.size6,.katex .sizing.reset-size4.size6{font-size:1.25em}.katex .fontsize-ensurer.reset-size4.size7,.katex .sizing.reset-size4.size7{font-size:1.5em}.katex .fontsize-ensurer.reset-size4.size8,.katex .sizing.reset-size4.size8{font-size:1.8em}.katex .fontsize-ensurer.reset-size4.size9,.katex .sizing.reset-size4.size9{font-size:2.16em}.katex .fontsize-ensurer.reset-size4.size10,.katex .sizing.reset-size4.size10{font-size:2.5925em}.katex .fontsize-ensurer.reset-size4.size11,.katex .sizing.reset-size4.size11{font-size:3.11em}.katex .fontsize-ensurer.reset-size5.size1,.katex .sizing.reset-size5.size1{font-size:.55555556em}.katex .fontsize-ensurer.reset-size5.size2,.katex .sizing.reset-size5.size2{font-size:.66666667em}.katex .fontsize-ensurer.reset-size5.size3,.katex .sizing.reset-size5.size3{font-size:.77777778em}.katex .fontsize-ensurer.reset-size5.size4,.katex .sizing.reset-size5.size4{font-size:.88888889em}.katex .fontsize-ensurer.reset-size5.size5,.katex .sizing.reset-size5.size5{font-size:1em}.katex .fontsize-ensurer.reset-size5.size6,.katex .sizing.reset-size5.size6{font-size:1.11111111em}.katex .fontsize-ensurer.reset-size5.size7,.katex .sizing.reset-size5.size7{font-size:1.33333333em}.katex .fontsize-ensurer.reset-size5.size8,.katex .sizing.reset-size5.size8{font-size:1.6em}.katex .fontsize-ensurer.reset-size5.size9,.katex .sizing.reset-size5.size9{font-size:1.92em}.katex .fontsize-ensurer.reset-size5.size10,.katex .sizing.reset-size5.size10{font-size:2.30444444em}.katex .fontsize-ensurer.reset-size5.size11,.katex .sizing.reset-size5.size11{font-size:2.76444444em}.katex .fontsize-ensurer.reset-size6.size1,.katex .sizing.reset-size6.size1{font-size:.5em}.katex .fontsize-ensurer.reset-size6.size2,.katex .sizing.reset-size6.size2{font-size:.6em}.katex .fontsize-ensurer.reset-size6.size3,.katex .sizing.reset-size6.size3{font-size:.7em}.katex .fontsize-ensurer.reset-size6.size4,.katex .sizing.reset-size6.size4{font-size:.8em}.katex .fontsize-ensurer.reset-size6.size5,.katex .sizing.reset-size6.size5{font-size:.9em}.katex .fontsize-ensurer.reset-size6.size6,.katex .sizing.reset-size6.size6{font-size:1em}.katex .fontsize-ensurer.reset-size6.size7,.katex .sizing.reset-size6.size7{font-size:1.2em}.katex .fontsize-ensurer.reset-size6.size8,.katex .sizing.reset-size6.size8{font-size:1.44em}.katex .fontsize-ensurer.reset-size6.size9,.katex .sizing.reset-size6.size9{font-size:1.728em}.katex .fontsize-ensurer.reset-size6.size10,.katex .sizing.reset-size6.size10{font-size:2.074em}.katex .fontsize-ensurer.reset-size6.size11,.katex .sizing.reset-size6.size11{font-size:2.488em}.katex .fontsize-ensurer.reset-size7.size1,.katex .sizing.reset-size7.size1{font-size:.41666667em}.katex .fontsize-ensurer.reset-size7.size2,.katex .sizing.reset-size7.size2{font-size:.5em}.katex .fontsize-ensurer.reset-size7.size3,.katex .sizing.reset-size7.size3{font-size:.58333333em}.katex .fontsize-ensurer.reset-size7.size4,.katex .sizing.reset-size7.size4{font-size:.66666667em}.katex .fontsize-ensurer.reset-size7.size5,.katex .sizing.reset-size7.size5{font-size:.75em}.katex .fontsize-ensurer.reset-size7.size6,.katex .sizing.reset-size7.size6{font-size:.83333333em}.katex .fontsize-ensurer.reset-size7.size7,.katex .sizing.reset-size7.size7{font-size:1em}.katex .fontsize-ensurer.reset-size7.size8,.katex .sizing.reset-size7.size8{font-size:1.2em}.katex .fontsize-ensurer.reset-size7.size9,.katex .sizing.reset-size7.size9{font-size:1.44em}.katex .fontsize-ensurer.reset-size7.size10,.katex .sizing.reset-size7.size10{font-size:1.72833333em}.katex .fontsize-ensurer.reset-size7.size11,.katex .sizing.reset-size7.size11{font-size:2.07333333em}.katex .fontsize-ensurer.reset-size8.size1,.katex .sizing.reset-size8.size1{font-size:.34722222em}.katex .fontsize-ensurer.reset-size8.size2,.katex .sizing.reset-size8.size2{font-size:.41666667em}.katex .fontsize-ensurer.reset-size8.size3,.katex .sizing.reset-size8.size3{font-size:.48611111em}.katex .fontsize-ensurer.reset-size8.size4,.katex .sizing.reset-size8.size4{font-size:.55555556em}.katex .fontsize-ensurer.reset-size8.size5,.katex .sizing.reset-size8.size5{font-size:.625em}.katex .fontsize-ensurer.reset-size8.size6,.katex .sizing.reset-size8.size6{font-size:.69444444em}.katex .fontsize-ensurer.reset-size8.size7,.katex .sizing.reset-size8.size7{font-size:.83333333em}.katex .fontsize-ensurer.reset-size8.size8,.katex .sizing.reset-size8.size8{font-size:1em}.katex .fontsize-ensurer.reset-size8.size9,.katex .sizing.reset-size8.size9{font-size:1.2em}.katex .fontsize-ensurer.reset-size8.size10,.katex .sizing.reset-size8.size10{font-size:1.44027778em}.katex .fontsize-ensurer.reset-size8.size11,.katex .sizing.reset-size8.size11{font-size:1.72777778em}.katex .fontsize-ensurer.reset-size9.size1,.katex .sizing.reset-size9.size1{font-size:.28935185em}.katex .fontsize-ensurer.reset-size9.size2,.katex .sizing.reset-size9.size2{font-size:.34722222em}.katex .fontsize-ensurer.reset-size9.size3,.katex .sizing.reset-size9.size3{font-size:.40509259em}.katex .fontsize-ensurer.reset-size9.size4,.katex .sizing.reset-size9.size4{font-size:.46296296em}.katex .fontsize-ensurer.reset-size9.size5,.katex .sizing.reset-size9.size5{font-size:.52083333em}.katex .fontsize-ensurer.reset-size9.size6,.katex .sizing.reset-size9.size6{font-size:.5787037em}.katex .fontsize-ensurer.reset-size9.size7,.katex .sizing.reset-size9.size7{font-size:.69444444em}.katex .fontsize-ensurer.reset-size9.size8,.katex .sizing.reset-size9.size8{font-size:.83333333em}.katex .fontsize-ensurer.reset-size9.size9,.katex .sizing.reset-size9.size9{font-size:1em}.katex .fontsize-ensurer.reset-size9.size10,.katex .sizing.reset-size9.size10{font-size:1.20023148em}.katex .fontsize-ensurer.reset-size9.size11,.katex .sizing.reset-size9.size11{font-size:1.43981481em}.katex .fontsize-ensurer.reset-size10.size1,.katex .sizing.reset-size10.size1{font-size:.24108004em}.katex .fontsize-ensurer.reset-size10.size2,.katex .sizing.reset-size10.size2{font-size:.28929605em}.katex .fontsize-ensurer.reset-size10.size3,.katex .sizing.reset-size10.size3{font-size:.33751205em}.katex .fontsize-ensurer.reset-size10.size4,.katex .sizing.reset-size10.size4{font-size:.38572806em}.katex .fontsize-ensurer.reset-size10.size5,.katex .sizing.reset-size10.size5{font-size:.43394407em}.katex .fontsize-ensurer.reset-size10.size6,.katex .sizing.reset-size10.size6{font-size:.48216008em}.katex .fontsize-ensurer.reset-size10.size7,.katex .sizing.reset-size10.size7{font-size:.57859209em}.katex .fontsize-ensurer.reset-size10.size8,.katex .sizing.reset-size10.size8{font-size:.69431051em}.katex .fontsize-ensurer.reset-size10.size9,.katex .sizing.reset-size10.size9{font-size:.83317261em}.katex .fontsize-ensurer.reset-size10.size10,.katex .sizing.reset-size10.size10{font-size:1em}.katex .fontsize-ensurer.reset-size10.size11,.katex .sizing.reset-size10.size11{font-size:1.19961427em}.katex .fontsize-ensurer.reset-size11.size1,.katex .sizing.reset-size11.size1{font-size:.20096463em}.katex .fontsize-ensurer.reset-size11.size2,.katex .sizing.reset-size11.size2{font-size:.24115756em}.katex .fontsize-ensurer.reset-size11.size3,.katex .sizing.reset-size11.size3{font-size:.28135048em}.katex .fontsize-ensurer.reset-size11.size4,.katex .sizing.reset-size11.size4{font-size:.32154341em}.katex .fontsize-ensurer.reset-size11.size5,.katex .sizing.reset-size11.size5{font-size:.36173633em}.katex .fontsize-ensurer.reset-size11.size6,.katex .sizing.reset-size11.size6{font-size:.40192926em}.katex .fontsize-ensurer.reset-size11.size7,.katex .sizing.reset-size11.size7{font-size:.48231511em}.katex .fontsize-ensurer.reset-size11.size8,.katex .sizing.reset-size11.size8{font-size:.57877814em}.katex .fontsize-ensurer.reset-size11.size9,.katex .sizing.reset-size11.size9{font-size:.69453376em}.katex .fontsize-ensurer.reset-size11.size10,.katex .sizing.reset-size11.size10{font-size:.83360129em}.katex .fontsize-ensurer.reset-size11.size11,.katex .sizing.reset-size11.size11{font-size:1em}.katex .delimsizing.size1{font-family:KaTeX_Size1}.katex .delimsizing.size2{font-family:KaTeX_Size2}.katex .delimsizing.size3{font-family:KaTeX_Size3}.katex .delimsizing.size4{font-family:KaTeX_Size4}.katex .delimsizing.mult .delim-size1>span{font-family:KaTeX_Size1}.katex .delimsizing.mult .delim-size4>span{font-family:KaTeX_Size4}.katex .nulldelimiter{display:inline-block;width:.12em}.katex .delimcenter,.katex .op-symbol{position:relative}.katex .op-symbol.small-op{font-family:KaTeX_Size1}.katex .op-symbol.large-op{font-family:KaTeX_Size2}.katex .accent>.vlist-t,.katex .op-limits>.vlist-t{text-align:center}.katex .accent .accent-body{position:relative}.katex .accent .accent-body:not(.accent-full){width:0}.katex .overlay{display:block}.katex .mtable .vertical-separator{display:inline-block;min-width:1px}.katex .mtable .arraycolsep{display:inline-block}.katex .mtable .col-align-c>.vlist-t{text-align:center}.katex .mtable .col-align-l>.vlist-t{text-align:left}.katex .mtable .col-align-r>.vlist-t{text-align:right}.katex .svg-align{text-align:left}.katex svg{fill:currentColor;stroke:currentColor;fill-rule:nonzero;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;display:block;height:inherit;position:absolute;width:100%}.katex svg path{stroke:none}.katex img{border-style:none;max-height:none;max-width:none;min-height:0;min-width:0}.katex .stretchy{display:block;overflow:hidden;position:relative;width:100%}.katex .stretchy:after,.katex .stretchy:before{content:""}.katex .hide-tail{overflow:hidden;position:relative;width:100%}.katex .halfarrow-left{left:0;overflow:hidden;position:absolute;width:50.2%}.katex .halfarrow-right{overflow:hidden;position:absolute;right:0;width:50.2%}.katex .brace-left{left:0;overflow:hidden;position:absolute;width:25.1%}.katex .brace-center{left:25%;overflow:hidden;position:absolute;width:50%}.katex .brace-right{overflow:hidden;position:absolute;right:0;width:25.1%}.katex .x-arrow-pad{padding:0 .5em}.katex .cd-arrow-pad{padding:0 .55556em 0 .27778em}.katex .mover,.katex .munder,.katex .x-arrow{text-align:center}.katex .boxpad{padding:0 .3em}.katex .fbox,.katex .fcolorbox{border:.04em solid;box-sizing:border-box}.katex .cancel-pad{padding:0 .2em}.katex .cancel-lap{margin-left:-.2em;margin-right:-.2em}.katex .sout{border-bottom-style:solid;border-bottom-width:.08em}.katex .angl{border-right:.049em solid;border-top:.049em solid;box-sizing:border-box;margin-right:.03889em}.katex .anglpad{padding:0 .03889em}.katex .eqn-num:before{content:"(" counter(katexEqnNo) ")";counter-increment:katexEqnNo}.katex .mml-eqn-num:before{content:"(" counter(mmlEqnNo) ")";counter-increment:mmlEqnNo}.katex .mtr-glue{width:50%}.katex .cd-vert-arrow{display:inline-block;position:relative}.katex .cd-label-left{display:inline-block;position:absolute;right:calc(50% + .3em);text-align:left}.katex .cd-label-right{display:inline-block;left:calc(50% + .3em);position:absolute;text-align:right}.katex-display{display:block;margin:1em 0;text-align:center}.katex-display>.katex{display:block;text-align:center;white-space:nowrap}.katex-display>.katex>.katex-html{display:block;position:relative}.katex-display>.katex>.katex-html>.tag{position:absolute;right:0}.katex-display.leqno>.katex>.katex-html>.tag{left:0;right:auto}.katex-display.fleqn>.katex{padding-left:2em;text-align:left}body{counter-reset:katexEqnNo mmlEqnNo}
+
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.katex-error {
+	color: var(--vscode-editorError-foreground);
+}
+
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <link rel="stylesheet" href="/~kitamura/md_preview1.css" type="text/css">
+<p><a href="https://ist.ksc.kwansei.ac.jp/~kitamura/index.html">トップ</a> &gt; <a href="https://ist.ksc.kwansei.ac.jp/~kitamura/courses.html">講義</a> &gt; <a href="../index.html">ネットワーク実習</a> &gt; ファイルと正規表現</p>
+<h1 id="第78回jspファイルと正規表現">第7,8回：JSP：ファイルと正規表現</h1>
+<h2 id="今回の目標">今回の目標</h2>
+<ul>
+<li>ファイル処理の理解</li>
+<li>正規表現の理解</li>
+<li>課題の取り組み</li>
+</ul>
+<h2 id="lesson-13テキストファイルを読み取ろう">LESSON 13：テキストファイルを読み取ろう</h2>
+<ul>
+<li>前回の連想配列の例ではデータの修正をするためには，プログラム自体を修正する必要がある．</li>
+<li>データをプログラムから独立させるために，ファイルにデータを保存するようにする．</li>
+</ul>
+<h3 id="address3ajsp"><a href="http://dius01.ksc.kwansei.ac.jp/network/students09/stu9999/report/address3a.jsp">address3a.jsp</a></h3>
+<pre><code class="language-jsp"><div>&lt;%@ page contentType=<span class="hljs-string">&quot;text/html;charset=UTF-8&quot;</span>
+	<span class="hljs-keyword">import</span>=<span class="hljs-string">&quot;java.io.*, java.util.*&quot;</span>%&gt;
+&lt;!DOCTYPE HTML&gt;
+&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;META CHARSET=<span class="hljs-string">&quot;UTF-8&quot;</span> /&gt;
+&lt;TITLE&gt;住所録一覧&lt;/TITLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+	&lt;TABLE BORDER=<span class="hljs-string">&quot;1&quot;</span>&gt;
+		&lt;TR&gt;
+			&lt;TH&gt;No.&lt;/TH&gt;
+			&lt;TH&gt;名前&lt;/TH&gt;
+			&lt;TH&gt;性別&lt;/TH&gt;
+			&lt;TH&gt;電話番号&lt;/TH&gt;
+			&lt;TH&gt;住所&lt;/TH&gt;
+		&lt;/TR&gt;
+		&lt;%
+			InputStreamReader reader = <span class="hljs-keyword">new</span> InputStreamReader(
+					<span class="hljs-keyword">new</span> FileInputStream(application.getRealPath(<span class="hljs-string">&quot;/WEB-INF/data.txt&quot;</span>)), <span class="hljs-string">&quot;UTF-8&quot;</span>);
+			BufferedReader buf = <span class="hljs-keyword">new</span> BufferedReader(reader);
+			<span class="hljs-keyword">while</span> (buf.ready()) {
+				String line = buf.readLine();
+				out.println(<span class="hljs-string">&quot;&lt;TR&gt;&quot;</span>);
+				<span class="hljs-comment">//StringTokenizer token = new StringTokenizer(line, &quot;\t&quot;);</span>
+				<span class="hljs-comment">//while(token.hasMoreTokens()) {</span>
+				<span class="hljs-comment">//	out.println(&quot;&lt;td&gt;&lt;font color=\&quot;red\&quot;&gt;&quot; + token.nextToken() + &quot;&lt;/font&gt;&lt;/td&gt;&quot;);</span>
+				String[] token = line.split(<span class="hljs-string">&quot;\t&quot;</span>);
+				<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; token.length; i++) {
+					out.println(<span class="hljs-string">&quot;&lt;TD&gt;&lt;FONT COLOR=\&quot;red\&quot;&gt;&quot;</span> + token[i] + <span class="hljs-string">&quot;&lt;/FONT&gt;&lt;/TD&gt;&quot;</span>);
+				}
+				out.println(<span class="hljs-string">&quot;&lt;/TR&gt;&quot;</span>);
+			}
+			buf.close();
+		%&gt;
+	&lt;/&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</div></code></pre>
+<ul>
+<li><a href="data.txt">ファイル</a>は/home/student22/stuXXXX/public_html/report/WEB-INF/のフォルダに保存しておく．</li>
+<li>application.getRealPath()メソッドを用いることで，WEB-INF以下の相対パスの記述だけでよくなる．</li>
+<li>教科書の例ではファイル読み取りのためにFileReaderクラスを用いているが，ここではFileInputStreamクラスを用いている．コンストラクタの第2引数に指定することで，文字コードの異なるファイルを扱うことが可能である．ちなみにサーバの文字コードはUTF-8，Windowsの文字コードはShift-JISである．教科書p.174参照．</li>
+<li>BufferedReaderクラスでバッファを使ったファイルの読み取りが可能になり，処理が効率化される．
+<ul>
+<li>ready()メソッドでファイルが読み取り可能かどうかを確認する．</li>
+<li>readLine()メソッドでファイルを1行読み取る．</li>
+<li>close()メソッドで読み取りを終了する．</li>
+</ul>
+</li>
+<li>文字の色を「赤」に変えるために，HTMLの&lt;FONT COLOR=&quot;red&quot;&gt;を用いている．これをout.println()メソッドで出力する場合，「&quot;」がJavaの予約文字となっているために，エスケープシーケンス（\&quot;）を用いている．教科書p.173参照．</li>
+<li>StringTokenizerは非推奨なので，split()メソッドを用いている．</li>
+</ul>
+<h2 id="lesson-14カスタムログを記録しよう">LESSON 14：カスタムログを記録しよう</h2>
+<h3 id="filewritejsp"><a href="http://dius01.ksc.kwansei.ac.jp/network/students09/stu9999/report/FileWrite.jsp">FileWrite.jsp</a></h3>
+<pre><code class="language-jsp"><div>&lt;%@ page contentType=<span class="hljs-string">&quot;text/html;charset=UTF-8&quot;</span>
+         <span class="hljs-keyword">import</span>=<span class="hljs-string">&quot;java.io.*, java.util.*&quot;</span> %&gt;
+&lt;!DOCTYPE HTML&gt;
+&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;META CHARSET=<span class="hljs-string">&quot;UTF-8&quot;</span> /&gt;
+&lt;TITLE&gt;ファイルの書き込み&lt;/TITLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;%
+String path = <span class="hljs-string">&quot;/WEB-INF/&quot;</span> + <span class="hljs-string">&quot;test.txt&quot;</span>;
+FileWriter writer = <span class="hljs-keyword">new</span> FileWriter(application.getRealPath(path), <span class="hljs-keyword">true</span>);
+BufferedWriter buf = <span class="hljs-keyword">new</span> BufferedWriter(writer);
+buf.write(<span class="hljs-string">&quot;2020/7/24,東京オリンピック&quot;</span>);
+buf.newLine();
+buf.close();
+%&gt;
+書き込み終了しました．
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</div></code></pre>
+<ul>
+<li>データは/home/student22/stuXXXX/public_html/report/WEB-INF/test.txtに保存される．</li>
+<li>ファイル書き込みのためにFileWriterクラスを用いている．コンストラクタの第2引数をtrueにすることで，追加の書き込みをおこなう．<font color="red">trueにしないと，ファイルが上書きされ，元の内容は消去される．</font></li>
+<li>BufferedWriterクラスでバッファを使ったファイルの読み取りが可能になり，処理が効率化される．
+<ul>
+<li>write(string)メソッドでstringをファイルに書き込む．．</li>
+<li>newLine()メソッドで改行を書き込む．</li>
+<li>close()メソッドで書き込みを終了する．</li>
+</ul>
+</li>
+<li>ファイル書き込みが拒否される場合は，WinSCPでそのファイルを選択し，右クリックする．「プロパティ」を選択し，パーミッションの「その他」の「W」にチェックを入れる．FileZillaではそのファイルを選択し，右クリックする．「パーミッションの変更」を選択し，「その他のパーミッション」の「書き込み」にチェックを入れる．</li>
+</ul>
+<h2 id="lesson-15正規表現検索に挑戦しよう">LESSON 15：正規表現検索に挑戦しよう</h2>
+<h3 id="入力フォームaddress4ainjsp"><a href="http://dius01.ksc.kwansei.ac.jp/network/students09/stu9999/report/address4Ain.jsp">入力フォーム(address4Ain.jsp)</a></h3>
+<pre><code class="language-jsp"><div>&lt;%@ page contentType=<span class="hljs-string">&quot;text/html;charset=UTF-8&quot;</span> %&gt;
+&lt;!DOCTYPE HTML&gt;
+&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;META CHARSET=<span class="hljs-string">&quot;UTF-8&quot;</span> /&gt;
+&lt;TITLE&gt;アドレス帳検索&lt;/TITLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;FORM METHOD=<span class="hljs-string">&quot;POST&quot;</span> ACTION=<span class="hljs-string">&quot;address4Aout.jsp&quot;</span>&gt;
+&lt;LABEL&gt;検索する電話番号：
+  &lt;INPUT TYPE=<span class="hljs-string">&quot;text&quot;</span> NAME=<span class="hljs-string">&quot;number&quot;</span> SIZE=<span class="hljs-string">&quot;20&quot;</span> /&gt;
+&lt;/LABEL&gt;
+&lt;INPUT TYPE=<span class="hljs-string">&quot;submit&quot;</span> VALUE<span class="hljs-string">&quot;検索&quot;</span> /&gt;
+&lt;/FORM&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</div></code></pre>
+<h3 id="結果ページaddress4aoutjsp">結果ページ(address4Aout.jsp)</h3>
+<pre><code class="language-jsp"><div>&lt;%@ page contentType=<span class="hljs-string">&quot;text/html;charset=UTF-8&quot;</span>
+         <span class="hljs-keyword">import</span>=<span class="hljs-string">&quot;java.io.*, java.util.*, java.util.regex.*&quot;</span> %&gt;
+&lt;!DOCTYPE HTML&gt;
+ 
+&lt;%
+String pnum = <span class="hljs-string">&quot;&quot;</span>;
+ 
+request.setCharacterEncoding(<span class="hljs-string">&quot;UTF-8&quot;</span>);
+String num=request.getParameter(<span class="hljs-string">&quot;number&quot;</span>);
+<span class="hljs-keyword">if</span>(num == <span class="hljs-string">&quot;&quot;</span>) pnum=<span class="hljs-string">&quot;.*&quot;</span>; <span class="hljs-keyword">else</span> pnum=num;
+Pattern pattern = Pattern.compile(pnum);
+%&gt;
+ 
+&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;META CHARSET=<span class="hljs-string">&quot;UTF-8&quot;</span> /&gt;
+&lt;TITLE&gt;住所録一覧&lt;/TITLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+正規表現文字列：&lt;%= pnum %&gt;
+&lt;TABLE BORDER=<span class="hljs-string">&quot;1&quot;</span>&gt;
+&lt;TR&gt;
+	&lt;TH&gt;No.&lt;/TH&gt;&lt;TH&gt;名前&lt;/TH&gt;&lt;TH&gt;性別&lt;/TH&gt;&lt;TH&gt;電話番号&lt;/TH&gt;&lt;TH&gt;住所&lt;/TH&gt;
+&lt;/TR&gt;
+&lt;%
+InputStreamReader reader = <span class="hljs-keyword">new</span> InputStreamReader( <span class="hljs-keyword">new</span> FileInputStream(
+	application.getRealPath(<span class="hljs-string">&quot;/WEB-INF/data.txt&quot;</span>)), <span class="hljs-string">&quot;UTF-8&quot;</span>);
+BufferedReader buf = <span class="hljs-keyword">new</span> BufferedReader(reader);
+<span class="hljs-keyword">while</span>(buf.ready()) {
+	String line = buf.readLine();
+	String[] token = line.split(<span class="hljs-string">&quot;\t&quot;</span>);
+	String no = token[<span class="hljs-number">0</span>];
+	String name = token[<span class="hljs-number">1</span>];
+	String sex = token[<span class="hljs-number">2</span>];
+	String phone = token[<span class="hljs-number">3</span>];
+	String address = token[<span class="hljs-number">4</span>];
+ 
+	Matcher match = pattern.matcher(phone);
+	<span class="hljs-keyword">if</span>(match.find()) {
+		out.println(<span class="hljs-string">&quot;&lt;TR&gt;&quot;</span>);
+		out.println(<span class="hljs-string">&quot;&lt;TD&gt;&quot;</span>+no+<span class="hljs-string">&quot;&lt;/TD&gt;&quot;</span>);
+		out.println(<span class="hljs-string">&quot;&lt;TD&gt;&quot;</span>+name+<span class="hljs-string">&quot;&lt;/TD&gt;&quot;</span>);
+		out.println(<span class="hljs-string">&quot;&lt;TD&gt;&quot;</span>+sex+<span class="hljs-string">&quot;&lt;/TD&gt;&quot;</span>);
+		out.println(<span class="hljs-string">&quot;&lt;TD&gt;&quot;</span>+phone+<span class="hljs-string">&quot;&lt;/TD&gt;&quot;</span>);
+		out.println(<span class="hljs-string">&quot;&lt;TD&gt;&quot;</span>+address+<span class="hljs-string">&quot;&lt;/TD&gt;&quot;</span>);
+		out.println(<span class="hljs-string">&quot;&lt;/TR&gt;&quot;</span>);
+		}
+	<span class="hljs-keyword">else</span> <span class="hljs-keyword">continue</span>;
+}
+buf.close();
+%&gt;
+&lt;/TABLE&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</div></code></pre>
+<ul>
+<li>正規表現に関しては教科書の解説(p.189~)や<a href="https://userweb.mnet.ne.jp/nakama/">サルにもわかる正規表現入門</a>などを参考にすること．</li>
+<li>Pattern.compile(正規表現文字列)で正規表現パターンを生成する．Patternクラスを利用するにはjava.util.regex.*をインポートする必要がある．</li>
+<li>matcher(検索文字列)で正規表現による検索を行う．</li>
+<li>find()がtrueであれば，検索がヒットしたことが分かる．</li>
+</ul>
+<hr>
+<address>
+<script>
+document.write("Last updated: " + document.lastModified);
+</script> <br>
+ykitamura@kwansei.ac.jp </address>
+        
+        
+    </body>
+    </html>

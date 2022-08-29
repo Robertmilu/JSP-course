@@ -1,0 +1,17 @@
+td,th{
+  border:5px solid #000000;
+  text-align: center;
+  background-color:#ffffff;
+  font-size:50px;
+  padding:5px 0;
+}
+th{
+  color:white;
+  background-color:#ae00ff;
+}
+tr *:first-child{
+  color:#ff6969;
+}
+tr *:last-child{
+  color:#0ba9ea;
+}

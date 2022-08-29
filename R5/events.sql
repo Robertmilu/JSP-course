@@ -1,0 +1,12 @@
+USE stu0756;
+CREATE TABLE events(id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), date DATE, place VARCHAR(20));
+INSERT INTO events( name, date, place) VALUES('東京マラソン2014','2014-02-23','東京');
+INSERT INTO events( name, date, place) VALUES('北京で冬季オリンピック','2022-02-04','北京');
+INSERT INTO events( name, date, place) VALUES('世界陸上競技選手権大会','2022-07-15','オレゴン');
+INSERT INTO events( name, date, place) VALUES('東京オリンピック','2021-07-23','東京');
+INSERT INTO events( name, date, place) VALUES('祇園祭','2022-07-01','京都');
+INSERT INTO events( name, date, place) VALUES('夏えびす','2022-07-07','西宮');
+INSERT INTO events( name, date, place) VALUES('田辺祭','2022-07-24','和歌山');
+INSERT INTO events( name, date, place) VALUES('函館港祭','2022-08-01','函館');
+INSERT INTO events( name, date, place) VALUES('うねめ祭','2022-08-04','郡山市');
+INSERT INTO events( name, date, place) VALUES('丹波篠山デカンショ祭','2022-08-15','篠山市');

@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>net-ws-R1.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<link rel="stylesheet" href="/~kitamura/md_preview1.css" type="text/css">
+<p><a href="https://ist.ksc.kwansei.ac.jp/~kitamura/index.html">トップ</a> &gt; <a href="https://ist.ksc.kwansei.ac.jp/~kitamura/courses.html">講義</a> &gt; <a href="../index.html">ネットワーク実習</a> &gt; JSPの基本</p>
+<h1 id="%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E5%AE%9F%E7%BF%92%E8%B3%87%E6%96%9912-jsp%E3%81%AE%E5%9F%BA%E6%9C%AC">ネットワーク実習資料(1,2): JSPの基本</h1>
+<h2 id="%E4%BB%8A%E5%9B%9E%E3%81%AE%E7%9B%AE%E6%A8%99">今回の目標</h2>
+<ul>
+<li>ガイダンス（スケジュール，成績評価，レポート提出）</li>
+<li>Web/JSPシステムのしくみの理解</li>
+<li>ファイル転送プログラムWinSCPの利用法</li>
+<li>サンプルJSPページの表示</li>
+<li>JSPの理解（教科書CHAPTER01）
+<ul>
+<li>HTML</li>
+<li>Javaの復習（繰り返し処理，変数，配列，文字列の連結，演算子，分岐処理など）</li>
+<li>入力フォーム</li>
+</ul>
+</li>
+<li>課題の取り組み</li>
+</ul>
+<h2 id="web%E3%81%AE%E3%81%97%E3%81%8F%E3%81%BF">Webのしくみ</h2>
+<ul>
+<li>World Wide Web（略してWeb）はインターネットを介して情報配信するためのアプリケーションの一つである．</li>
+<li>情報を配信するためのWebサーバーと情報を受信するためのWebクライアントから成り立つ．</li>
+<li>情報はHTMLを用いてページ単位で記述され，Webページやホームページと呼ばれる．ひとまとまりのWebページによりWebサイトが構成される．</li>
+<li>WebページはWebサーバー上に保存され，通信プロトコルHTTPを用いてクライアントに配信される．</li>
+<li>サーバーではWebサーバーアプリケーション（例：<a href="https://httpd.apache.org/">Apache</a>など）を用いてWebページを配信する．</li>
+<li>クライアントではWebブラウザ（例：Google Chrome, Internet Explorer, Microsft Edge, Firefoxなど）を用いてWebページを閲覧する．</li>
+</ul>
+<img src="web210404.png" width="500">
+<h2 id="jsp%E3%81%AE%E3%81%97%E3%81%8F%E3%81%BF">JSPのしくみ</h2>
+<ul>
+<li>JSP (JavaServer Pages)はHTMLにJavaコードを組み込み，動的にWebページを生成する技術である．</li>
+<li>JSPサーバーでは，（クライアントの）Webブラウザからの要求に対して，該当するJSPページをコンパイルし，生成されたWebページを配信する．</li>
+<li>JSPではデータベース(DB)との連携も可能である．</li>
+<li>JSPサーバーアプリケーションとしては<a href="http://tomcat.apache.org/">Apache Tomcat</a>がある．</li>
+</ul>
+<img src="jsp210404.png" width="500">
+<h2 id="web%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E7%92%B0%E5%A2%83">Webプログラミング環境</h2>
+<ul>
+<li>開発用クライアント上でエディタ（例：サクラエディタ，VSCode）を用いてWeb/JSPページを作成する．</li>
+<li>ファイル転送ソフト（例：WinSCP）を用いてWeb/JSPページをサーバー（例：dius01.ksc.kwansei.ac.jp）にアップロードする．</li>
+<li>実行結果はWebブラウザで確認する．</li>
+<li>必要に応じてサーバーの管理を端末ソフト（例：TeraTerm）を用いて行う．</li>
+</ul>
+<img src="web1.png">
+<h2 id="lesson-1-jsp%E3%82%B5%E3%83%BC%E3%83%96%E3%83%AC%E3%83%83%E3%83%88%E3%81%AE%E7%92%B0%E5%A2%83%E3%82%92%E6%BA%96%E5%82%99%E3%81%97%E3%82%88%E3%81%86">LESSON 1: JSP（&amp;サーブレット）の環境を準備しよう</h2>
+<ul>
+<li>JSPの開発環境（エディタ，ファイル転送ソフト，端末ソフト）と実行環境(JSPサーバー)は大学で準備している．</li>
+<li>オンラインで受講する場合は，開発環境（エディタ，ファイル転送ソフト，端末ソフト）を自宅PCにインストールする必要がある．自宅PCには<a href="Win10.zip">Windows10</a>または<a href="MacOS.zip">MacOS</a>用のマニュアルにしたがって，エディタとファイル転送用ソフトウェアをインストールすること．エディタは使い慣れたものがあれば，それを使っても問題ない．</li>
+<li>ネットワーク実習で利用するサーバーは通常のWebサーバーと異なり，大学外には公開されていない．したがって，その利用のためには<a href="https://ict.kwansei.ac.jp/guide/other_000397.html">VPN接続サービス</a>を用いて，学内ネットワークに接続する必要がある．VPNを利用するためには情報環境機構に申請する必要がある．</li>
+</ul>
+<!--
+* 【上級】自宅PCにサーバー環境まで整えたい場合は，教科書に従うのではなく，[Windows10](DevWin10.zip)または[MacOS](DevMacOS.zip)用のマニュアルに従い，Eclipse, Tomcat, MySQL, JDBCの順にソフトウェアをインストールすること．ただし開発したプログラムを提出するためにはVPNを経由したファイル転送ソフトによって大学のJSPサーバーにアップロードする必要がある．
+* [VSCode](VSCode(Win)210324.pdf)を用いるとより洗練された統合的な開発環境を構築することができる．ただしMacOSでの動作確認はできていない．
+-->
+<h2 id="lesson-2-%E3%81%8A%E3%81%BC%E3%81%88%E3%82%88%E3%81%86jsp%E3%81%AE%E5%9F%BA%E6%9C%AC">LESSON 2: おぼえようJSPの基本</h2>
+<p>動作確認を行うためには以下の作業が必要になる．</p>
+<ul>
+<li>テキストエディタ（例：サクラエディタなど)を用いて，JSPページを作成，保存する．</li>
+<li>自宅PCの場合は，VPN接続サービスを用いて大学ネットワークに接続する．</li>
+<li>ファイル転送プログラム（例：WinSCPやFileZilla）などを用いて，JSPページをWebサーバ(dius01.ksc.kwansei.ac.jp)にアップロードする．
+<ul>
+<li>ファイル転送プログラムWinSCPの起動：スタートメニューから探す</li>
+<li>ホスト名(dius01)を選択して，「ログイン」．</li>
+<li>ユーザ名，パスワードを入力する．</li>
+<li>アップロードするフォルダ（ディレクトリ）[ホームディレクトリのpublic_html/report]を表示する．</li>
+<li>ドラッグアンドドロップでファイルのアップロード．</li>
+<li>「コピー」ボタンを押す．</li>
+<li>【任意】オプション→環境設定→保存→設定の保存を「INIファイル（指定）」にチェックを入れると，ログイン情報が保存できる．</li>
+</ul>
+</li>
+<li>ブラウザで動作を確認する．
+<ul>
+<li>http://dius01.ksc.kwansei.ac.jp/network/students22/stuXXXX/report/　で表示することができる．XXXXは学籍番号の下4桁．</li>
+<li>JSPページをクリックすると表示される．</li>
+</ul>
+</li>
+<li>WinSCPにサーバー上のファイルの操作（新規作成，編集，削除，名前の変更など）を直接行うことが可能である．</li>
+</ul>
+<!--
+* 【上級】VSCodeを使うとサーバー上のファイルを直接作成，編集することが可能になる．
+* 【上級】公開鍵暗号を用いるとユーザ名とパスワードの入力を省略することができる．
+-->
+<p><a href="http://dius01.ksc.kwansei.ac.jp/network/students09/stu9999/report/Sample1.html">HTMLのサンプル(Sample1.html)</a> （学外からはVPN経由でないと見えません．）</p>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">HTML</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">HTML</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">HEAD</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">META</span> <span class="hljs-attr">CHARSET</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">TITLE</span>&gt;</span>HTMLのサンプル<span class="hljs-tag">&lt;/<span class="hljs-name">TITLE</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">HEAD</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">BODY</span>&gt;</span>
+これは<span class="hljs-tag">&lt;<span class="hljs-name">B</span>&gt;</span>サンプルページ<span class="hljs-tag">&lt;/<span class="hljs-name">B</span>&gt;</span>です．
+<span class="hljs-tag">&lt;/<span class="hljs-name">BODY</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">HTML</span>&gt;</span>
+</div></code></pre>
+<ul>
+<li><code>&lt;!DOCTYPE HTML&gt;</code>：ファイルがHTMLで書かれていることを宣言する．</li>
+<li><code>&lt;HTML&gt;～&lt;/HTML&gt;</code>：HTML文書の始まりと終わりを示す．</li>
+<li><code>&lt;HEAD&gt;～&lt;/HEAD&gt;</code>：文書タイトル等HTML文書のヘッダ情報の始まりと終わりを示す．</li>
+<li><code>&lt;TITLE&gt;～&lt;/TITLE&gt;</code>：文書のタイトルを示す．</li>
+<li><code>&lt;META&gt;</code>：文書の文字コードなどのメタ情報を示す．</li>
+<li><code>&lt;BODY&gt;～&lt;/BODY&gt;</code>：HTML文書の本体の始まりと終わりを示す．</li>
+<li><a href="http://www.htmq.com/html/">HTMLタグの詳しい情報</a></li>
+</ul>
+<p><a href="http://dius01.ksc.kwansei.ac.jp/network/students09/stu9999/report/test1.jsp">JSPのサンプルプログラム1(test1.jsp)</a> （学外からはVPN経由でないと見えません．）</p>
+<pre class="hljs"><code><div>&lt;%@ page contentType=<span class="hljs-string">"text/html;charset=UTF-8"</span>%&gt;
+&lt;!DOCTYPE HTML&gt;
+&lt;%
+String message = <span class="hljs-string">"これはテストです"</span>;
+%&gt;
+&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;META CHARSET=<span class="hljs-string">"UTF-8"</span>&gt;
+&lt;TITLE&gt;テスト&lt;/TITLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;H1&gt;テスト&lt;/H1&gt;
+&lt;P&gt;&lt;%= message %&gt;&lt;/P&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</div></code></pre>
+<ul>
+<li><code>&lt;% %&gt;</code>でJavaのコード（スクリプトレット）をページ中に挿入することができる．</li>
+<li><code>&lt;%= message %&gt;</code>は<code>&lt;% out.print(message); %&gt;</code>と同じ意味である．</li>
+<li>実習室のサクラエディタの文字コードは標準でUTF-8になっているので，charset=UTF-8にすること．</li>
+</ul>
+<h2 id="lesson-3-%E7%B9%B0%E3%82%8A%E8%BF%94%E3%81%97%E5%87%A6%E7%90%86%E3%82%92%E5%AE%9F%E8%A1%8C%E3%81%97%E3%82%88%E3%81%861">LESSON 3: 繰り返し処理を実行しよう(1)</h2>
+<p><a href="http://dius01.ksc.kwansei.ac.jp/network/students09/stu9999/report/15/everyone.jsp">繰り返し処理</a> （学外からはVPN経由でないと見えません．）</p>
+<pre class="hljs"><code><div>&lt;%@ page contentType=<span class="hljs-string">"text/html;charset=UTF-8"</span> %&gt;
+&lt;%!
+String[] names = { <span class="hljs-string">"松岡"</span>, <span class="hljs-string">"薄井"</span>, <span class="hljs-string">"本多"</span>, <span class="hljs-string">"川村"</span>, <span class="hljs-string">"日尾"</span> };
+%&gt;
+&lt;!DOCTYPE HTML&gt;
+&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;META CHARSET=<span class="hljs-string">"UTF-8"</span> /&gt;
+&lt;TITLE&gt;みんなにこんにちは！&lt;/TITLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;%
+<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; names.length; i++) {
+  out.println(<span class="hljs-string">"&lt;P&gt;こんにちは、"</span> + names[i] + <span class="hljs-string">"さん！ &lt;/P&gt;"</span>);
+}
+%&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</div></code></pre>
+<ul>
+<li>JSPではJavaのコードをWebページに組み込むことができる．この例は，文字列配列namesの要素を順に表示している．</li>
+</ul>
+<h2 id="lesson-4-%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E3%81%8B%E3%82%89%E3%81%AE%E5%85%A5%E5%8A%9B%E3%82%92%E5%8F%97%E3%81%91%E5%8F%96%E3%82%8D%E3%81%86">LESSON 4: フォームからの入力を受け取ろう</h2>
+<p><a href="http://dius01.ksc.kwansei.ac.jp/network/students09/stu9999/report/input3.jsp">入力フォーム(input3.jsp)</a> （学外からはVPN経由でないと見えません．）</p>
+<pre class="hljs"><code><div>&lt;%@ page contentType=<span class="hljs-string">"text/html; charset=UTF-8"</span> %&gt;
+&lt;!DOCTYPE HTML&gt;
+&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;META CHARSET=<span class="hljs-string">"UTF-8"</span>&gt;
+&lt;TITLE&gt;入力画面&lt;/TITLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;FORM ACTION=<span class="hljs-string">"output3A.jsp"</span> METHOD=<span class="hljs-string">"Post"</span>&gt;
+入力画面&lt;BR&gt;
+&lt;TABLE&gt;
+&lt;TR&gt;&lt;TD&gt;氏名&lt;/TD&gt;&lt;TD&gt;&lt;INPUT TYPE=<span class="hljs-string">"text"</span> NAME=<span class="hljs-string">"name"</span>&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD&gt;年齢&lt;/TD&gt;&lt;TD&gt;&lt;INPUT TYPE=<span class="hljs-string">"text"</span> NAME=<span class="hljs-string">"age"</span>&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;INPUT TYPE=<span class="hljs-string">"submit"</span> VALUE=<span class="hljs-string">"行け！"</span>&gt;&lt;BR&gt;
+&lt;/FORM&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</div></code></pre>
+<p>結果ページ(output3A.jsp)</p>
+<pre class="hljs"><code><div>&lt;%@ page contentType=<span class="hljs-string">"text/html; charset=UTF-8"</span>%&gt;
+&lt;%@ page <span class="hljs-keyword">import</span>=<span class="hljs-string">"java.util.*"</span> %&gt; &lt;% <span class="hljs-comment">/* クラスライブラリの指定*/</span>%&gt;
+&lt;!DOCTYPE HTML&gt;
+ 
+&lt;%
+request.setCharacterEncoding(<span class="hljs-string">"UTF-8"</span>);
+String strName=request.getParameter(<span class="hljs-string">"name"</span>);
+<span class="hljs-keyword">int</span> intAge=Integer.parseInt(request.getParameter(<span class="hljs-string">"age"</span>));
+ 
+Calendar cal = <span class="hljs-keyword">new</span> GregorianCalendar(); <span class="hljs-comment">/* 今日のカレンダーを取得 */</span>
+<span class="hljs-keyword">int</span> year = cal.get(Calendar.YEAR);
+%&gt;
+ 
+&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;META CHARSET=<span class="hljs-string">"UTF-8"</span>&gt;
+&lt;TITLE&gt;表示テスト&lt;/TITLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+表示テスト&lt;BR&gt;
+&lt;TABLE BORDER=<span class="hljs-string">"1"</span>&gt;
+&lt;TR&gt;&lt;TD&gt;氏名&lt;/TD&gt;&lt;TD&gt;&lt;%= strName %&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD&gt;生まれ年?&lt;/TD&gt;&lt;TD&gt;&lt;%= year-intAge %&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</div></code></pre>
+<ul>
+<li>JSPでは入力フォームからデータを入力し，計算結果を結果ページに表示することができる．</li>
+</ul>
+<h2 id="%E3%82%A8%E3%82%B9%E3%82%B1%E3%83%BC%E3%83%97%E3%82%B7%E3%83%BC%E3%82%B1%E3%83%B3%E3%82%B9">エスケープシーケンス</h2>
+<p><a href="http://dius01.ksc.kwansei.ac.jp/network/students09/stu9999/report/escape.jsp">escape.jsp</a>
+（学外からはVPN経由でないと見えません．）</p>
+<pre class="hljs"><code><div>&lt;%@ page contentType=<span class="hljs-string">"text/html; charset=UTF-8"</span> %&gt;
+&lt;!DOCTYPE HTML&gt;
+&lt;%
+String message = <span class="hljs-string">"これはテストです"</span>;
+%&gt;
+&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;META CHARSET=<span class="hljs-string">"UTF-8"</span>&gt;
+&lt;TITLE&gt;エスケープシーケンス&lt;/TITLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;P&gt;&lt;% out.print(<span class="hljs-string">"&lt;font color=\"red\"&gt;"</span>+message+<span class="hljs-string">"&lt;/font&gt;"</span>); %&gt;&lt;/P&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</div></code></pre>
+<ul>
+<li>out.printの中で&quot;（ダブルクオート）を表示したい場合，文字列の始めと終わりを表す&quot;と区別がつかなくなるために，&quot;の前にエスケープシーケンスである\（バックスラッシュ）を追加する．（教科書p.173参照）</li>
+</ul>
+<h2 id="%E6%97%A5%E6%95%B0%E8%A8%88%E7%AE%97">日数計算</h2>
+<p><a href="http://dius01.ksc.kwansei.ac.jp/network/students09/stu9999/report/calendar.jsp">日数計算のサンプル(calendar.jsp)</a>
+（学外からはVPN経由でないと見えません．）</p>
+<pre class="hljs"><code><div>&lt;%@ page contentType=<span class="hljs-string">"text/html; charset=UTF-8"</span> <span class="hljs-keyword">import</span>=<span class="hljs-string">"java.util.*"</span> %&gt;
+&lt;!DOCTYPE HTML&gt;
+&lt;% 
+Calendar day1=<span class="hljs-keyword">new</span> GregorianCalendar(<span class="hljs-number">2008</span>, <span class="hljs-number">10</span>, <span class="hljs-number">5</span>);
+Calendar day2=<span class="hljs-keyword">new</span> GregorianCalendar(<span class="hljs-number">2008</span>, <span class="hljs-number">10</span>, <span class="hljs-number">4</span>);
+    
+<span class="hljs-keyword">long</span> days=(day1.getTimeInMillis() - day2.getTimeInMillis())/<span class="hljs-number">1000</span>/<span class="hljs-number">60</span>/<span class="hljs-number">60</span>/<span class="hljs-number">24</span>;
+%&gt;
+&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;META CHARSET=<span class="hljs-string">"UTF-8"</span>&gt;
+&lt;TITLE&gt;カレンダー&lt;/TITLE&gt;
+&lt;/HEAD&gt;
+
+&lt;BODY&gt;
+&lt;P&gt;
+&lt;% out.print(<span class="hljs-string">"差は"</span>+days+<span class="hljs-string">"日です．"</span>); %&gt;
+&lt;/P&gt;
+&lt;/BODY&gt;
+
+&lt;/HTML&gt;
+</div></code></pre>
+<ul>
+<li>時間の計算にはJavaのGregorianCalendarクラスを利用することができる．</li>
+<li>GregorianCalenderの月は0（1月）～11（12月）が使われることに注意．</li>
+</ul>
+<h2 id="%E7%AB%AF%E6%9C%AB%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%81%AE%E5%88%A9%E7%94%A8%E6%B3%95">端末プログラムの利用法</h2>
+<ul>
+<li>大学PCまたは自宅PC (Windows10) からの接続
+<ul>
+<li>VPNで学内ネットワークに接続する．</li>
+<li>コマンドプロンプトを起動する． (Windows10標準のPowerShellは日本語が表示されない．最新版(Ver.7)のPowerShellならば問題はない．)</li>
+<li>ssh dius01.ksc.kwansei.ac.jp -l stuXXXX</li>
+<li>パスワードを入力する．</li>
+</ul>
+</li>
+<li>自宅PC (Mac) からの接続
+<ul>
+<li>VPNで学内ネットワークに接続する．</li>
+<li>ターミナルを起動する．</li>
+<li>ssh dius01.ksc.kwansei.ac.jp -l stuXXXX</li>
+<li>パスワードを入力する．</li>
+</ul>
+</li>
+<li>dius01.ksc.kwansei.ac.jpサーバ（Linuxマシン）へのログイン</li>
+<li>パスワードの変更
+<ul>
+<li>passwd (パスワードの変更) ：以下の手順で行われる．簡単すぎるパスワードは受け付けられない．
+<ul>
+<li>(current) UNIX password: （現在のパスワード．エコーバックされない．）</li>
+<li>New UNIX password:（新しいパスワード．エコーバックされない．）</li>
+<li>Retype new UNIX password: （新しいパスワード，確認用．エコーバックされない．）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>その他の主要コマンド
+<ul>
+<li>ls (ディレクトリ内容の表示)</li>
+<li>cd (カレントディレクトリの変更)</li>
+<li>mkdir (ディレクトリの生成)</li>
+<li>rm (ファイルの削除)</li>
+<li>less (ファイルの表示，終了はq)</li>
+<li>chmod （ファイルアクセス権限の設定））</li>
+<li>man (マニュアルの表示)</li>
+</ul>
+</li>
+</ul>
+<!--
+* 【上級】以下のような~/.ssh/configファイルを作成すると，サーバー名とユーザ名の入力が簡略化され，`ssh dius01`でログインできる．さらに公開鍵暗号を用いればパスワードも省略できる．
+```
+Host dius01
+HostName dius01.ksc.kwansei.ac.jp
+User stuXXXX
+```
+-->
+<h2 id="%E6%96%87%E5%AD%97%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AE%E6%89%B1%E3%81%84%E8%87%AA%E5%AE%85pc%E3%81%A7%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%82%92%E9%96%8B%E7%99%BA%E3%81%97%E3%81%9F%E5%A0%B4%E5%90%88">文字コードの扱い（自宅PCでプログラムを開発した場合）</h2>
+<p>標準のWindows（自宅のPC等）では漢字コードがShift JIS，改行コードがCR+LFである一方，dius01（ネットワーク実習用サーバ）では漢字コードがUTF-8，改行コードがLFという異なる文字コードを用いている．自宅でShift JISコードでプログラムを開発した場合は，以下のようにサクラエディタで文字コードを指定するか，サーバ上で文字コードを変換することで，漢字コードをUTF-8，改行コードをLFに変換する必要がある．
+漢字コードの詳細に関しては<a href="https://www.kanzaki.com/docs/jcode.html">ここ</a>を参照すること．</p>
+<h3 id="%E3%82%B5%E3%82%AF%E3%83%A9%E3%82%A8%E3%83%87%E3%82%A3%E3%82%BF%E3%81%A7%E3%81%AE%E6%96%87%E5%AD%97%E3%82%B3%E3%83%BC%E3%83%89%E6%8C%87%E5%AE%9A">サクラエディタでの文字コード指定</h3>
+<p>「設定」→「文字コードセット指定」で保存するファイルの文字コード指定ができる．</p>
+<h3 id="%E3%82%B5%E3%83%BC%E3%83%90%E4%B8%8A%E3%81%A7%E3%81%AE%E6%96%87%E5%AD%97%E3%82%B3%E3%83%BC%E3%83%89%E5%A4%89%E6%8F%9B">サーバ上での文字コード変換</h3>
+<p><code>nkf -w --overwrite ファイル名</code><br>
+（または）<br>
+<code>nkf-utf8 ファイル名</code><br></p>
+<p>でファイルの文字コードがUnix用（UTF-8）に変換される．また，<br></p>
+<p><code>nkf -g ファイル名</code></p>
+<p>でファイルの漢字コードがわかる．</p>
+<hr>
+<address>
+<script>
+document.write("Last updated: " + document.lastModified);
+</script> <br>
+ykitamura@kwansei.ac.jp </address>
+</body>
+</html>
